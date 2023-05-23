@@ -36,6 +36,7 @@
 ## Setup index.php
 
 1. Copy paste isi [`config/index.php`](https://github.com/newblime/TugasPemwebUAS/blob/main/config/index.php) ke "index.php" di folder "htdocs" di XAMPP
+2. Kemudian ganti variabel `$_address_website` di file "index.php" tersebut
 
 
 
