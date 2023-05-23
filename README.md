@@ -5,7 +5,7 @@
 1. Buka PHPMyAdmin
 2. Bikin database baru
 3. Klik import
-4. Kemudian import dari `/database/tugaspemweb.sql
+4. Kemudian import dari `/database/tugaspemweb.sql`
 
 ![](https://github.com/newblime/TugasPemwebUAS/blob/main/image_github/database.png?raw=true)
 
