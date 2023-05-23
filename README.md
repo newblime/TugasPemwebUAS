@@ -1,7 +1,7 @@
 # Cara Coba Website
 
 ## Setup Database
-
+ 
 1. Buka PHPMyAdmin
 2. Bikin database baru
 3. Klik import
