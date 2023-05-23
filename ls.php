@@ -1,7 +1,7 @@
 <html>
   <body>
     <h2>Login / Sign Up</h2>
-    <form action="ls_confirm.php" method="post">
+    <form onsubmit="LoginSignup(username, password)" method="post">
       Username: <input type="text" placeholder="Your username here" name="username"><br>
       Password: <input type="password" name="password"><br>
       <input type="Submit" value="Login">
