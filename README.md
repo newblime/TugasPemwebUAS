@@ -14,7 +14,8 @@
 
 ## Setup user database
 
-1. Buka
+1. Buka "includes/database_auth.php"
+2. Ganti variabel `$db_user, $db_password, $db_name` pada file .php tersebut sesuai dengan komentar
 
 
 ## Setup xampp
