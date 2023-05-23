@@ -12,6 +12,11 @@
 5. Pencet "import" di paling bawah page
 
 
+## Setup user database
+
+1. Buka
+
+
 ## Setup xampp
 
 1. Buka config "php.ini"
