@@ -1,6 +1,6 @@
 <?php
 
-  $_address_website = "/TugasPemwebUAS/main.php";
+  $_address_website = "main.php";
 
 
 
