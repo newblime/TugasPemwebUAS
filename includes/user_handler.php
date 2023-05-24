@@ -4,6 +4,14 @@ require_once('database_connection.php');
 require_once('password.php');
 
 
+enum LoginStatus{
+  case wrong_password;
+  case success;
+  case username_notfound;
+  case username_already_exist;
+}
+
+
 class user_handler{
   public static $db_table_name = "pengguna";
   public static $cookie_id_name = "cookieID";
@@ -17,7 +25,7 @@ class user_handler{
   }
 
   
-  public static function Login($username, $password) : string{
+  public static function Login($username, $password): LoginStatus{
     global $stringHasher;
     global $db_conn;
 
@@ -34,37 +42,35 @@ class user_handler{
         if(!cookie_handler::AddCookieUser($cookie_id, $username, new DateTime()))
           throw new Exception("Cannot add cookie");
 
-        return $cookie_id;
+        return LoginStatus::success;
       }
       else{
-        print("password wrong");
-        // TODO: kalau password salah
+        return LoginStatus::wrong_password;
       }
     }
     else{
-      print("username not found");
-      // TODO: kalau nggak ketemu username
+      return LoginStatus::username_notfound;
     }
-
-
-    return "";
   }
 
-  public static function Logout(){
-    // TODO: delete cookie
-    
-    setcookie(user_handler::$cookie_id_name, "", time()-1, "/");
+  public static function Logout(): bool{
+    return cookie_handler::RemoveCurrentUser();
   }
 
-  public static function Signup($username, $password): bool{
+  public static function Signup($username, $password): LoginStatus{
     global $stringHasher;
     global $db_conn;
 
-    // TODO: kalau sudah ada username
-    $sql_query = "INSERT INTO " . user_handler::$db_table_name ." (username, password, date_created) VALUES (\"" . $username . "\", \"" . $stringHasher->hash($password) . "\", '" . date("Y-m-d") . "')";
+    $sql_query = "SELECT username FROM " . user_handler::$db_table_name . " WHERE username='" . $username . "';";
+
+    $result = $db_conn->query($sql_query);
+    if($result->num_rows > 0)
+      return LoginStatus::username_already_exist;
+
+    $sql_query = "INSERT INTO " . user_handler::$db_table_name . " (username, password, date_created) VALUES (\"" . $username . "\", \"" . $stringHasher->hash($password) . "\", '" . date("Y-m-d") . "')";
 
     $db_conn->query($sql_query);
 
-    return true;
+    return LoginStatus::success;
   }
 }

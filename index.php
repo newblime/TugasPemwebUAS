@@ -1,6 +1,6 @@
 <?php
 
-  $_address_website = "main.php";
+  $_address_website = "/main.html";
 
 
 
