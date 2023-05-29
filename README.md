@@ -36,7 +36,7 @@
 ![](https://github.com/newblime/TugasPemwebUAS/blob/main/image_github/xampp_shell.png?raw=true)
 
 4. Kemudian arahkan ke folder repository pakai command `cd`
-5. Install pkg composer pakai `php composer.phar install
+5. Install pkg composer pakai `php composer.phar install`
 
 
 
