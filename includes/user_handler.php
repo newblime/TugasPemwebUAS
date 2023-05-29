@@ -9,6 +9,8 @@ enum LoginStatus{
   case success;
   case username_notfound;
   case username_already_exist;
+  case username_has_special_characters;
+  case logged_out;
 }
 
 
@@ -17,11 +19,16 @@ class user_handler{
   public static $cookie_id_name = "cookieID";
 
 
-  public static function GetCurrentUser(): User{
-    if(isset($_COOKIE[user_handler::$cookie_id_name]))
-      return cookie_handler::GetUser($_COOKIE[user_handler::$cookie_id_name]);
+  public static function GetCurrentUser(): User | LoginStatus{
+    if(isset($_COOKIE[user_handler::$cookie_id_name])){
+      $user = cookie_handler::GetUser($_COOKIE[user_handler::$cookie_id_name]);
+      if($user != null)
+        return $user;
+      else
+        return LoginStatus::username_notfound;
+    }
     else
-      throw new Exception("Not logged in.");
+      return LoginStatus::logged_out;
   }
 
   
@@ -30,6 +37,9 @@ class user_handler{
     global $db_conn;
 
     $sql_query = "SELECT username, password FROM `" . user_handler::$db_table_name . "` WHERE username='" . $username ."';";
+
+    if(preg_match("/^[_][\p{C}\p{M}\p{P}\p{S}]/", $username))
+      return LoginStatus::username_has_special_characters;
 
     $result = $db_conn->query($sql_query);
     if($result->num_rows > 0){
@@ -61,6 +71,8 @@ class user_handler{
     global $stringHasher;
     global $db_conn;
 
+    // TODO use uri
+
     $sql_query = "SELECT username FROM " . user_handler::$db_table_name . " WHERE username='" . $username . "';";
 
     $result = $db_conn->query($sql_query);
@@ -72,5 +84,19 @@ class user_handler{
     $db_conn->query($sql_query);
 
     return LoginStatus::success;
+  }
+
+  public static function GetUser($username): User | null{
+    global $db_conn;
+
+    $sql_query = "SELECT username, date_created FROM " . user_handler::$db_table_name . " WHERE username='" . $username . "';";
+
+    $result = $db_conn->query($sql_query);
+    if($result->num_rows > 0){
+      $row = $result->fetch_assoc();
+      return new User($row["username"], new DateTime($row["date_created"]));
+    }
+    else
+      return null;
   }
 }

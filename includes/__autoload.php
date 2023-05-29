@@ -8,6 +8,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/cookie_handler.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/user_handler.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/redirect.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/post_handler.php');
 
 
 error_reporting(E_ALL ^ E_ERROR);

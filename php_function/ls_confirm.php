@@ -44,6 +44,13 @@ try{
 
         break;
       }
+
+      case LoginStatus::username_has_special_characters:{
+        $_success = 0;
+        $_status = 3;
+
+        break;
+      }
     }
   }
 }

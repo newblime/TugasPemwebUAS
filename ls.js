@@ -1,10 +1,9 @@
 
 // pengambilan semua tag yang diperlukan di ls.html
-const _errormsg = document.querySelector("div[name='errormsg']");
-const _form = document.querySelector("form[name='login']");
-const _button = _form.querySelector("input[name='onsubmit']");
-const _username = _form.querySelector("input[name='username']");
-const _password = _form.querySelector("input[name='password']");
+const _errormsg = GetTag("div", "errormsg");
+const _button = GetTag("input", "onsubmit");
+const _username = GetTag("input", "username");
+const _password = GetTag("input", "password");
 
 
 // ketika pada tombol <input type="button" name="onsubmit" value="Login"> di ls.html ditekan
@@ -37,36 +36,15 @@ _button.addEventListener('click', () => {
   
     
     // callback jika ada kesalahan
-    // eenum adalah kode error dari ErrorEnum untuk memberi tahu kode kesalahan
+    // eenum adalah kode error dari BackendError untuk memberi tahu kode kesalahan
     (eenum) => {
 
       // menghilangkan attribut "hidden", sehingga tampilan error dapat dilihat
       _errormsg.removeAttribute("hidden");
 
       // _errormsg.innerHTML adalah isi dari <div name="errormsg" style="color:red" hidden></div> pada ls.html
-
-      switch(eenum){
-        // jika username belum dimasukkan
-        case ErrorEnum.no_username:
-          _errormsg.innerHTML = "Username kosong!";
-          break;
-
-        // jika password belum dimasukkan
-        case ErrorEnum.no_password:
-          _errormsg.innerHTML = "Password kosong!";
-          break;
-
-        // jika password yang dimasukkan salah
-        case ErrorEnum.password_wrong:
-          _errormsg.innerHTML = "Password salah.";
-          break;
-      }
-
-
-      // jika error tersebut dikarenakan masalah pada backend/server/internal
-      if(IsConnectionError(eenum)){
-        _errormsg.innerHTML = "Masalah internal, coba lagi nanti.";
-      }
+      // GetDefaultErrorMessage() adalah fungsi untuk mengambil error message
+      _errormsg.innerHTML = GetDefaultErrorMessage(eenum);
     }
   );
 });
