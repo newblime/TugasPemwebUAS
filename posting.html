@@ -1,21 +1,46 @@
 <html>
   <head>
-    
+    <link rel="stylesheet" href="formstyle.css">
   </head>
+
   <body>
-    <h2>Upload postingan</h2><br>
-    <div name="errormsg" style="color:red" hidden></div><br>
-    <input type="text" name="location_name" placeholder="Lokasi pada kejadian"><br>
-    <textarea rows="5" cols="60" name="post_msg" placeholder="Ceritakan kejadian..."></textarea><br>
+    <header>
+      <title>Pengaduan</title>
+    </header>
 
-    <input type="file" name="post_img" accept="image/jpg, image/png"><br>
 
-    <input type="button" name="onsubmit" value="Submit">
+    <div class="wrapper">
+      <h2>FORMULIR PENGADUAN</h2><br>
+
+      <div class="form-group">
+        <div class="errormsg">
+          placeholder
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">LOKASI ADUAN ANDA</label>
+        <input name="location_name" type="text">
+      </div>
+
+      <div class="form-group">
+        <label for="">DESKRIPSI ADUAN</label>
+        <textarea rows="5" cols="60" name="post_msg" placeholder="Ceritakan Aduan..."></textarea><br>
+      </div>
+
+      <div class="form-group">
+        <label for="">FOTO KEJADIAN</label>
+        <input type="file" name="post_img" accept="image/jpg, image/png"><br>
+      </div>
+
+      <input type="button" name="onsubmit" value="Submit" class="submit">
+      <input type="button" name="oncancel" value="Batal" class="batal">
+    </div>
   </body>
 
 
   <script src="includes/jquery-3.7.0.min.js"></script>
-  <script src="includes/backend.js""></script>
+  <script src="includes/backend.js"></script>
 
   <script src="posting.js"></script>
 </html>

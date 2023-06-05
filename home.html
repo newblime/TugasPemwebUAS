@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layanan Pengaduan Masyarakat Kota Samarinda</title>
+    <link rel="stylesheet" href="home.css"/>
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <p class="logo">LOGO</p>
+        <nav>
+          <ul class="nav-link" name="navigation_link">
+            <li class="link"><a href="#home">Home</a></li>
+            <li class="link"><a href="#tentang">Tentang</a></li>
+            <li class="link"><a href="#aduan">Daftar Aduan</a></li>
+            <li>
+              <a class="sign-up" href="login.html">Sign Up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div name="page_type" hidden>1</div>
+    </header>
+
+    <div name="home_part">
+       <!--Home-->
+
+      <div id="home" class="home-container">
+        <div class="home-text">
+          <h1 class="title">
+            Layanan <span>Pengaduan Masyarakat</span> Kota Samarinda
+          </h1>
+          <p class="tagline">
+            “Tingkatkan Kemajuan Kota dalam Aspek Kenyamanan dan Ketersediaan
+            Fasilitas Daerah”
+          </p>
+          <a class="ajukan-button" href="posting.html">Ajukan</a>
+        </div>
+        <div class="home-img"><img src="asset/imghome.png" alt="image1" /></div>
+      </div>
+
+      <!-- tentang -->
+      <div id="tentang" class="tentang-container">
+        <div class="tentang-content">
+          <img src="asset/Asset 1.png" alt="tentang" />
+
+          <div class="text-tentang">
+            <p class="title-tentang">Tentang</p>
+            <p class="isi">
+              Kami adalah Tim yang menampung aspirasi Anda agar bisa kita wujudkan bersama untuk Samarinda yang maju dan sejahtera. Dengan banyaknya permasalahan terdapat di Samarinda tiap waktu seperti masalah kebanjiran, jalan yang kurang stabil dan lainnya. Kami ingin menanamkan potensi untuk perbaikan ketidaknyamanan dengan melalui Aplikasi ini. Kami memiliki unit yang akan siap merespon anda selama 24 jam, kami membangun layanan untuk memberi kebutuhan untuk Anda, agar bisa lebih dekat, lebih bisa mengontrol kinerja kami dan mampu memberi saran dan masukan bagi pengembangan kami dimasa depan.
+              <br />
+              <br />
+              <br />
+              Terima kasih.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="box-fitur">
+        <div class="menampung-aspirasi">
+          <h1>Menampung Aspirasi</h1>
+          <p>
+            Menerima aduan masyarakat terkait fasilitas demi kenyamanan seluruh
+            masyarakat Samarinda
+          </p>
+        </div>
+
+        <div class="kerahasiaan-terjaga">
+          <h1>Kerahasiaan Tetap Terjaga</h1>
+          <p>
+            Menjamin kerahasiaan identitas, dan memberi pelindungan terhadap
+            pelapor
+          </p>
+        </div>
+
+        <div class="praktis">
+          <h1>Praktis</h1>
+          <p>
+            Pengaduan hanya melalui website, tidak perlu mendatangi kantor
+            pemerintahan.
+          </p>
+        </div>
+      </div>
+
+      <div class="hr-cont">
+        <hr id="aduan" />
+      </div>
+    </div>
+
+    <!-- Upload an masyarakat -->
+
+    <div class="sec-posted">
+      <p class="title-post">Aduan Masyarakat</p>
+
+      <div class="date-filter">
+        <label for="filter">Filter Berdasarkan Tanggal :</label>
+        <br/>
+        <input type="date" id="filter" name="filter_date"/>
+        <input type="button" name="filter_button" value="Filter"/>
+        <br/>
+      </div>
+
+      <div class="posted-container" name="posting_area">
+        
+      </div>
+
+      <div name="data_load">
+        <!-- biarkan kosong -->
+      </div>
+
+      <div name="status_load" style="padding-bottom: 5%; display: flex; justify-content: center;">
+
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+      <h1>Logo</h1>
+      <div class="footer-content">
+        <div class="desc">
+          <h1>KELOMPOK EMPAT</h1>
+          <p>
+            Website ini dibuat untuk memenuhi tugas final project pemrograman
+            web D081, website ini merupakan replikan dari website e-lapor yang
+            bertujuan menampung aspirasi masyarakat terkait keutuhan fasilitas
+            dan kenyamana masyarakat samarinda.
+          </p>
+        </div>
+
+        <div class="crew">
+          <h2>Anggota</h2>
+          <div class="anggota">
+            <p>Bintang Jagad Syah Sana</p>
+            <p>M.Richo Wahyudi</p>
+            <p>Adika Firjatullah</p>
+            <p>Farrel Triuaka Vierino</p>
+            <p>Tsabita Safana Mustofa</p>
+          </div>
+        </div>
+
+        <div class="anggota">
+          <h2>NPM</h2>
+          <p>21081010005</p>
+          <p>21081010062</p>
+          <p>21081010139</p>
+          <p>21081010222</p>
+          <p>21081010282</p>
+        </div>
+
+        <div class="link-footer">
+          <h2>Link</h2>
+          <div class="link-">
+            <a href="#home">Home</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#aduan">Daftar Aduan</a>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      <p class="copyright">&copy; 2023 | Kelompok 4 Pemograman Web D081</p>
+    </div>
+  </body>
+
+  <script src="includes/jquery-3.7.0.min.js"></script>
+  <script src="includes/backend.js"></script>
+
+  <script src="check_login.js"></script>
+  <script src="ambil_post.js"></script>
+</html>

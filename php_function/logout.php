@@ -9,6 +9,8 @@ try{
     $array = array("success" => 1);
   else
     $array = array("success" => 0, "code" => 0);
+
+  redirectTo("home.html");
 }
 catch(Exception $e){
   $array = array("success" => 0, "code" => 1);

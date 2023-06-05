@@ -36,7 +36,8 @@ class post_handler{
       $row = $result->fetch_assoc();
 
       if(gettype($row) == "array"){
-        $row['date_posted'] .= " UTC";
+        $date = new DateTime($row['date_posted']);
+        $row['date_posted'] = $date->format("d F o H:i:s") . " UTC";
 
         $row['message_filename'] = post_handler::$text_destination . "/" . $row['message_filename'];
 
